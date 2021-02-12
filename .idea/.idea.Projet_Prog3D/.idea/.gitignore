@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+/.idea.Projet_Prog3D.iml
+# Datasource local storage ignored files
+/../../../../../../../:\Users\mege\Projet_Prog3D\.idea\.idea.Projet_Prog3D\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
