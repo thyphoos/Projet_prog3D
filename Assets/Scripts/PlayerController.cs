@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float cameraSensibility = 0.1f;
     [SerializeField] private Rigidbody playerRigidbody;
     
+    
     private float pitch = 0f;
     private float yawn = 0f;
     // Start is called before the first frame update
