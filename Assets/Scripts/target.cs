@@ -11,6 +11,7 @@ public class target : MonoBehaviour
         {
             Vector3 position= transform.position+new Vector3(0,1.5f,0);
             Die();
+            print("die");
             if (GameObject.Find("player first person").GetComponent<playerMovement>().cptsquelette == 6)
             {
                 float a = Random.Range(0, 360);
@@ -25,8 +26,10 @@ public class target : MonoBehaviour
 
     void Die()
     {
+
         GameObject.Find("player first person").GetComponent<playerMovement>().cptsquelette += 1;
         Destroy(gameObject);
+        
     }
 
 }
