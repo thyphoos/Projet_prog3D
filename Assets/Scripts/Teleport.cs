@@ -10,6 +10,7 @@ public class Teleport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (GameObject.Find("player first person").GetComponent<playerMovement>().cptkey == 3)
         player.transform.position = teleportArea.transform.position;
     }
 }

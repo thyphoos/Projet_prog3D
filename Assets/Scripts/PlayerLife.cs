@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -20,22 +21,25 @@ public class PlayerLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (currentHealth <= 0)
         {
-            DrinkPotion(50);
+            StartCoroutine(changeScene());
         }
-    }
-
-    void DrinkPotion(int life)
-    {
-        currentHealth += life;
-        healthBar.SetHealth((currentHealth));
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+    
+    private IEnumerator changeScene()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync("SceneLoose");
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
     }
 }
 

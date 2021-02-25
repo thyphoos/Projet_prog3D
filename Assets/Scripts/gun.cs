@@ -27,6 +27,10 @@ public class gun : MonoBehaviour
         if (Physics.Raycast(FpsCam.transform.position, FpsCam.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            if (hit.transform.name == "cible(Clone)")
+            {
+                GameObject.Find("cible(Clone)").GetComponent<cibleBehavior>().gethit = true;
+            }
 
             target Target = hit.transform.GetComponent<target>();
             if (Target != null)
