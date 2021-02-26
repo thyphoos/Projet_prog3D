@@ -32,6 +32,11 @@ public class gun : MonoBehaviour
                 GameObject.Find("cible(Clone)").GetComponent<cibleBehavior>().gethit = true;
             }
 
+            if (hit.transform.name == "cible(Clone)")
+            {
+                GameObject.Find("cible(Clone)").GetComponent<cibleBehavior>().gethit = true;
+            }
+
             target Target = hit.transform.GetComponent<target>();
             if (Target != null)
             {

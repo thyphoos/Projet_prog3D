@@ -1,17 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class playerMovement : MonoBehaviour
 {
     public CharacterController controller;
-
+    public int cptsquelette = 0; 
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
+    public int cptkey=0;
+    public int cptcible=1;
+    public bool isciblepresent = false;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -19,13 +21,12 @@ public class playerMovement : MonoBehaviour
 
     private Vector3 velocity;
     private bool isGrounded;
-    
-    public int cptsquelette = 0;
-    public int cptkey=0;
-    public int cptcible=1;
-    public bool isciblepresent = false;
-    [SerializeField] private TextMeshProUGUI keysNumber;
-    
+
+    private void Start()
+    {
+        Instantiate(Resources.Load("key"), new Vector3(-12, 10, 6), Quaternion.Euler(-12,10,6));
+    }
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -48,8 +49,10 @@ public class playerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-        
-         if (cptsquelette==6)
+
+
+
+        if (cptsquelette==6)
         {
             switch (cptcible)
             {
@@ -107,13 +110,8 @@ public class playerMovement : MonoBehaviour
             }
 
         }
-         
-         keysNumber.text = $"{cptkey}/3";
 
     }
-
-    private void Start()
-    {
-        Instantiate(Resources.Load("key"), new Vector3(-12, 10, 6), Quaternion.Euler(-12,10,6));
-    }
+    
+   
 }
